@@ -19,6 +19,12 @@ class MyClass:
 obj = await MyClass(42)
 assert obj.val == 44
 ```
+
+## Inheritance
+
+Note that if a parent class is decorated with `@asyncinit`, its child classes
+automatically inherit async `__init__` functionality and don't require decoration
+themselves (as long as they don't override `__new__`.)
 """
 
 import functools

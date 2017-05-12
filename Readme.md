@@ -1,5 +1,7 @@
 # asyncinit -- Enable async `__init__`
 
+[Documentation](http://kchmck.github.io/pdoc/asyncinit/)
+
 This package provides the `asyncinit` decorator, which enables an asynchronous constructor
 to be called like any other asynchronous function.
 

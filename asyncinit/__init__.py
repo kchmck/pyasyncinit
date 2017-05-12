@@ -37,12 +37,12 @@ def asyncinit(obj):
     else:
         cls_new = _force_async(obj.__new__)
 
-    cls_init = _force_async(obj.__init__)
-
     @functools.wraps(obj.__new__)
     async def new(cls, *args, **kwargs):
         self = await cls_new(cls, *args, **kwargs)
-        await cls_init(self, *args, **kwargs)
+
+        cls_init = _force_async(self.__init__)
+        await cls_init(*args, **kwargs)
 
         return self
 
@@ -84,6 +84,17 @@ def _test_asyncinit():
             self.num = x
             self.derived = 4 * x
 
+    @asyncinit
+    class SuperClass:
+        async def __init__(self, a, b, c):
+            self.a = a
+            self.b = b
+            self.c = c
+
+    class SubClass(SuperClass):
+        async def __init__(self, a):
+            await super().__init__(a, 2 * a, 3 * a)
+
     async def mainTask():
         test = await TestAsyncInit(3)
         assert test.num == 3
@@ -92,6 +103,11 @@ def _test_asyncinit():
         test = await TestNormalInit(42)
         assert test.num == 42
         assert test.derived == 168
+
+        test = await SubClass(4)
+        assert test.a == 4
+        assert test.b == 8
+        assert test.c == 12
 
     eventLoop = asyncio.get_event_loop()
     eventLoop.run_until_complete(mainTask())

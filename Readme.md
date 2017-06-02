@@ -27,5 +27,5 @@ assert obj.val == 44
 
 This package requires Python >= 3.5.0 and can be installed with `pip`:
 ```
-pip install git+https://github.com/kchmck/pyasyncinit
+pip install asyncinit
 ```

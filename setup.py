@@ -5,7 +5,7 @@ with open("Readme.md") as f:
 
 setup(
     name="asyncinit",
-    version="0.2.1",
+    version="0.2.2",
     description="Class decorator to enable async __init__",
     author="Mick Koch",
     license="MIT",

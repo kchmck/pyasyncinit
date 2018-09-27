@@ -1,8 +1,5 @@
 from setuptools import setup
 
-with open("Readme.md") as f:
-    readme = f.read()
-
 setup(
     name="asyncinit",
     version="0.2.2",
@@ -22,6 +19,4 @@ setup(
         "License :: OSI Approved :: MIT License",
     ],
     keywords="async init asyncio",
-    long_description=readme,
-    long_description_content_type="text/markdown",
 )

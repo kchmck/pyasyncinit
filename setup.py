@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="asyncinit",
-    version="0.2.3",
+    version="0.2.4",
     description="Class decorator to enable async __init__",
     author="Mick Koch",
     license="MIT",

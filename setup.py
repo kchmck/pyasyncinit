@@ -11,6 +11,7 @@ setup(
     packages=["asyncinit"],
     extras_require={
         "dev": [
+            "pylint~=2.1",
             "pytest~=3.6",
         ],
     },

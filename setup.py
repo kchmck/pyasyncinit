@@ -9,6 +9,11 @@ setup(
     author_email="mick@kochm.co",
     url="https://github.com/kchmck/pyasyncinit",
     packages=["asyncinit"],
+    extras_require={
+        "dev": [
+            "pytest~=3.6",
+        ],
+    },
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",

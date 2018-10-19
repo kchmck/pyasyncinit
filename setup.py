@@ -9,6 +9,7 @@ setup(
     author_email="mick@kochm.co",
     url="https://github.com/kchmck/pyasyncinit",
     packages=["asyncinit"],
+    python_requires=">=3.5",
     extras_require={
         "dev": [
             "pylint~=2.1",
